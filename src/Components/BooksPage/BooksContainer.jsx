@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import Book from './Book'
 import { SetBooksThunk } from '../../Redux/Reducers/bookReducer'
-import { addToCart, removeFromCart } from '../../Redux/Reducers/cartReducer'
+import { addToCart, removeFromCart, upQuantity, downQuantity } from '../../Redux/Reducers/cartReducer'
 
 let mapStateToProps = (state) => {
     return {
@@ -11,7 +11,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let BooksContainer = connect(mapStateToProps, {SetBooksThunk, addToCart, removeFromCart})(BooksPage)
+let BooksContainer = connect(mapStateToProps, {SetBooksThunk, addToCart, removeFromCart, upQuantity, downQuantity})(BooksPage)
 
 
 function BooksPage(props) {
@@ -32,6 +32,8 @@ function BooksPage(props) {
                         item={book}
                         card={props.card}
                         removeFromCart={props.removeFromCart}
+                        upQuantity={props.upQuantity}
+                        downQuantity={props.downQuantity}
                     />)}
             </div>
         </div>
