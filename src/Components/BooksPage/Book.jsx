@@ -5,8 +5,10 @@ import { useState } from 'react';
 function Book(props) {
 
     useEffect(() => {
-        props.card?.map(book => {
-            if (book.id === props.id) { console.log('Есть')}})    
+            props.card.map(book => {if (book.id === props.id) {
+                console.log(`книга ${book.id} уже есть в корзине`)
+                SetAdded(true)
+            }})
     }, [])
 
     let [isAdded, SetAdded] = useState(false)

@@ -7,7 +7,7 @@ import { addToCart, removeFromCart } from '../../Redux/Reducers/cartReducer'
 let mapStateToProps = (state) => {
     return {
         books: state.books.items,
-        card: state.cart.item
+        card: state.cart.items
     }
 }
 
@@ -19,6 +19,7 @@ function BooksPage(props) {
     useEffect(() => {
         props.SetBooksThunk()
     }, [])
+    
  
     return (
         <div className="BooksPage">
