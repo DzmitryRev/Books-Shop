@@ -12,7 +12,7 @@ let cartReducer = (state = initialState, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
-                items: [...state.items, { ...action.payload}]
+                items: [...state.items, { ...action.payload, quanity: +1}]
             }
 
         case REMOVE_FROM_CART:
@@ -26,7 +26,7 @@ let cartReducer = (state = initialState, action) => {
 
             state.items.map(book => {
                 if (book.id === action.payload) {
-                    book.Current += 1
+                    book.quanity += 1
                 }
             })
             return {
@@ -36,7 +36,7 @@ let cartReducer = (state = initialState, action) => {
 
             state.items.map(book => {
                 if (book.id === action.payload) {
-                    book.Current -= 1
+                    book.quanity -= 1
                 }
             })
             return {

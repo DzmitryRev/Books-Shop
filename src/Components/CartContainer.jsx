@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { removeFromCart } from '../Redux/Reducers/cartReducer'
+import { connect, useStore } from 'react-redux'
+import { removeFromCart, upQuantity, downQuantity } from '../Redux/Reducers/cartReducer'
 
 function Cart(props) {
 
@@ -9,7 +9,9 @@ function Cart(props) {
     props.items.map(book => {
         totalPrice = totalPrice + book.price
     });
-   
+    
+    
+    console.log(props.items)
     
 
      return (
@@ -19,7 +21,13 @@ function Cart(props) {
                 <img src={item.image} />
                 <h3>{item.title}</h3>
                 <h4>{item.price}</h4>
-                <button onClick={() => props.removeFromCart(item.id)}>Удалить</button>
+                <h4>{item.quanity}</h4> 
+                <button onClick={() => props.upQuantity(item.id)}>UpQuanity</button>
+                {item.quanity>1?<button onClick={() => props.downQuantity(item.id)}>DownQuanity</button>:
+                <button onClick={() => props.removeFromCart(item.id)}>Удалить</button>}
+                {item.quanity>1?<button onClick={() => props.removeFromCart(item.id)}>Удалить</button>:
+                null}
+                
             </div>)}
             <h3>Total price {totalPrice}</h3>
             <button>Оплатить</button>
@@ -35,7 +43,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let CartContainer = connect(mapStateToProps, { removeFromCart })(Cart)
+let CartContainer = connect(mapStateToProps, { removeFromCart, upQuantity, downQuantity })(Cart)
 
 
 export default CartContainer
