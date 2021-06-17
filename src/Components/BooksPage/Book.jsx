@@ -28,6 +28,8 @@ function Book(props) {
         <div className="Book">
             <img src={props.image} />
             <h2>{props.title}</h2>
+            <h3>Цена: {props.price}</h3> 
+            <h4>Рейтинг: {props.rating}</h4>
             {isAdded?<div className="QuanityBooks">
                 {quanity>1?<button onClick={()=>props.downQuantity(props.id)}>-</button>:
                 <button onClick={()=>RemoveFromCard()}>rem</button>

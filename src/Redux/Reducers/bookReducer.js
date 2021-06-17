@@ -1,6 +1,7 @@
 import { db } from "../../Config/fbConfig"
 
 const SET_BOOKS = 'SET_BOOKS'
+const SORT_BY_PRICE = 'SORT_BY_PRICE'
 
 const initialState = {
     items: []
@@ -11,10 +12,8 @@ let bookReducer = (state = initialState, action) => {
         case SET_BOOKS:
             return {
                 ...state,
-                items: action.payload,
-                isReady: true
+                items: action.payload
             }
-
         default:
             return state
     }
