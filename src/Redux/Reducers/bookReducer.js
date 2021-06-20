@@ -4,7 +4,8 @@ const SET_BOOKS = 'SET_BOOKS'
 const SORT_BY_PRICE = 'SORT_BY_PRICE'
 
 const initialState = {
-    items: []
+    items: [],
+    selectSort: 'By Rating Down'
 }
 
 let bookReducer = (state = initialState, action) => {

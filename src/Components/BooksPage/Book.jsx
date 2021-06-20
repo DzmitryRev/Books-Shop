@@ -24,8 +24,8 @@ function Book(props) {
     }
 
     return (
-
-        <div className="Book">
+       
+        <div className="col-lg-3 BookBlock">
             <img src={props.image} />
             <h2>{props.title}</h2>
             <h3>Цена: {props.price}</h3> 
@@ -42,10 +42,7 @@ function Book(props) {
                 : <button onClick={() => AddToCard()}>Добавить в корзину</button>}
 
         </div>
-
-
-
-    );
+        );
 }
 
 export default Book
