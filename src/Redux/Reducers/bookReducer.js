@@ -1,11 +1,13 @@
 import { db } from "../../Config/fbConfig"
 
 const SET_BOOKS = 'SET_BOOKS'
-const SORT_BY_PRICE = 'SORT_BY_PRICE'
+const SORT_BY = 'SORT_BY'
+const SEARCH_QUERY = 'SEARCH_QUERY'
 
 const initialState = {
     items: [],
-    selectSort: 'By Rating Down'
+    selectSort: 'By Rating Down',
+    searchQuery: ''
 }
 
 let bookReducer = (state = initialState, action) => {
@@ -15,6 +17,16 @@ let bookReducer = (state = initialState, action) => {
                 ...state,
                 items: action.payload
             }
+            case SORT_BY:
+                return {
+                    ...state,
+                    selectSort: action.payload
+                }
+                case SEARCH_QUERY:
+                    return {
+                        ...state,
+                        searchQuery: action.payload
+                    }
         default:
             return state
     }
@@ -23,6 +35,17 @@ let bookReducer = (state = initialState, action) => {
 export let setBooks = (payload) => {
     return (
         { type: SET_BOOKS, payload }
+    )
+}
+export let setSearchQuery = (payload) => {
+    return (
+        { type: SEARCH_QUERY, payload }
+    )
+}
+
+export let sortBy = (payload) => {
+    return (
+        { type: SORT_BY, payload }
     )
 }
 
