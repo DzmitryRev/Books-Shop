@@ -1,14 +1,6 @@
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/images";
-@import "../../node_modules/bootstrap/scss/containers";
-@import "../../node_modules/bootstrap/scss/grid";
+@import '../../node_modules/semantic-ui-css/semantic.min.css';
+
 
 *, *:before, *:after {
   margin: 0;
@@ -18,28 +10,30 @@
 }
 
 .App {
-  background-color: bisque;
+  background-color: rgb(211, 211, 211);
 }
+
 
 .Container {
   max-width: 95%;
   margin: 0 auto;
-  background-color: cadetblue;
   padding: 20px;
- @media screen and (max-width: 660px) {
-   max-width: 100%;
- }
 }
-
-.Header {
-  height: 75px ;
-}
-
 
 .BookBlock {
-  img {
-    width: 100%;
+  h6, h5 {
+    margin:  3px 0;
+    height: 20px;
   }
+  h4 {
+    margin: 5px 0;
+    height: 40px;
+  }
+
+}
+
+.BookImage {
+  max-height: 420px;
 }
 
 .SortBlock {
@@ -74,4 +68,22 @@
 }
 .addMoth {
   position: relative;
+}
+
+.fa {
+  font-family: "Font Awesome 5 Free";  /* updated font-family */
+  font-weight: 900; /* regular style/weight */
+}
+
+.my-camera::before {
+  font-family: "Font Awesome 5 Free";  /* updated font-family */
+  font-weight: 900; /* regular style/weight */
+  content: "\f083";
+  font-style:normal;
+}
+
+.Butt {
+  display: flex;
+  height: 35px;
+  
 }

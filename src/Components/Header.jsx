@@ -1,16 +1,29 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 function Header(props) {
+  
     
     return (
-        <header className="Header">
-            <div className="Header-logo"><h1>BookShop</h1></div>
-            <div className="Header-Menu">
-                <Link to="/Books">Товары</Link>
-                <Link to="/Card">Корзина</Link>
-            </div>
-        </header >
+       <div>
+          
+        <Menu pointing secondary>
+        <Link to="/Books">
+          <Menu.Item
+            name='Товары'            
+          />
+          </Link>
+         <Link to="/Card">
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='Корзина'
+            />
+          </Menu.Menu>
+          </Link>
+        </Menu>
+    </div>
     )
 }
 
